@@ -57,7 +57,9 @@ public final class BlockCanary {
      * @return {@link BlockCanary}
      */
     public static BlockCanary install(Context context, BlockCanaryContext blockCanaryContext) {
+        // 会保存应用的context和用户设置的参数
         BlockCanaryContext.init(context, blockCanaryContext);
+        // 将根据用户的通知栏消息配置开启
         setEnabled(context, DisplayActivity.class, BlockCanaryContext.get().displayNotification());
         return get();
     }
